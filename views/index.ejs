@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <% include template/navbar.ejs %>
+  
+    <h1>Welcome to <%= title %></h1>
+  
+    <p>this value is a globale variable: <%= points %></p>
+  
+    <h1>A loop example : </h1>
+    <ul>
+      <% for(let i=0;i<5;i++){ %>
+        <li>Print a number :<%= i %> </li>
+      <% } %>
+    </ul>
+      
+    <h1>These values is retrieved from json file: </h1>
+  
+    <h3><%= data.categoryName %></h3>  
+    
+    <ul>
+      <% data.categories.forEach(function (item) {
+        let link = baseLink + item.categoryID;  
+      %>
+        <li>
+          <a href=" <%= link %>">
+            <%= item.categoryName %> 
+          </a>
+        </li>
+      <%  }); %>
+    </ul>
+  
+  </body>
+</html>
